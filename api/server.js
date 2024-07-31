@@ -20,7 +20,7 @@ app.get("*", (req, res) => {
 });
 
 // MongoDB connectionmongoose
-  .connect(
+  mongoose.connect(
     "mongodb+srv://maazwaheed:1234@cluster0.kdph31d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then(() => console.log("MongoDB connected"))
