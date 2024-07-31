@@ -19,10 +19,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client" , "dist" , "index.html"));
 });
 
-// MongoDB connection
-mongoose
+// MongoDB connectionmongoose
   .connect(
-    "mongodb+srv://maazwaheed:1234@cluster0.i4eolwj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    "mongodb+srv://maazwaheed:1234@cluster0.kdph31d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err, "sss"));
 
