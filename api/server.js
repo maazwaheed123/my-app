@@ -8,27 +8,29 @@ const imageRoutes = require("./routes/images");
 const app = express();
 
 // Middleware
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/api/images", imageRoutes);
 
-app.use(express.static(path.join(__dirname, "/client/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client" , "dist" , "index.html"));
-});
-
-// MongoDB connectionmongoose
-  mongoose.connect(
+// MongoDB connection
+mongoose
+  .connect(
     "mongodb+srv://maazwaheed:1234@cluster0.kdph31d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err, "sss"));
 
-const PORT = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
