@@ -7,7 +7,7 @@ function HomePage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
 
-  const correctPassword = "1234"; // Set your desired password here
+  const correctPassword = "qazwsx123"; // Set your desired password here
 
   useEffect(() => {
     if (isAuthenticated) {
