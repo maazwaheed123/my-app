@@ -22,12 +22,7 @@ app.get("*", (req, res) => {
 // MongoDB connection
 mongoose
   .connect(
-    "mongodb+srv://maazwaheed:1234@cluster0.i4eolwj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+    "mongodb+srv://maazwaheed:1234@cluster0.i4eolwj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err, "sss"));
 
